@@ -1,10 +1,11 @@
 # 项目概览
 
-本项目使用 `diagrams` 与 Graphviz 生成三类系统设计图：
+本项目使用 `diagrams` 与 Graphviz 生成四类系统设计图：
 
 - 数据密集型系统设计（data_intensive_system）
 - 操作系统设计（os_design）
 - Kubernetes 子系统（k8s_design）
+- IM 系统 SDK 设计（im_sdk_design）
 
 ## 依赖
 
@@ -62,6 +63,17 @@ python3 k8s_diagram.py
 - `k8s_design.png`
 - `k8s_design.pdf`
 
+### 4) IM 系统 SDK 设计图（独立脚本）
+
+```bash
+python3 im_sdk_diagram.py
+```
+
+输出文件：
+
+- `im_sdk_design.png`
+- `im_sdk_design.pdf`
+
 ### 使用 Makefile 一键生成
 
 ```bash
@@ -73,6 +85,8 @@ make data
 make os
 # 仅生成 K8s 图
 make k8s
+# 仅生成 IM SDK 图
+make imsdk
 # 清理输出
 make clean
 ```
@@ -82,6 +96,7 @@ make clean
 - `diagram.py`：数据密集型系统设计图脚本（仅生成 PNG/PDF）。
 - `os_diagram.py`：操作系统设计图脚本（独立，生成 PNG/PDF）。
 - `k8s_diagram.py`：Kubernetes 子系统图脚本（独立，生成 PNG/PDF）。
+- `im_sdk_diagram.py`：IM 系统 SDK 设计图脚本（独立，生成 PNG/PDF）。
 - `Makefile`：一键生成与清理入口。
 - `web_service.png`：示例 Web Service 图（示例用途）。
 

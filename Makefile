@@ -1,8 +1,8 @@
 PY=python3
 
-.PHONY: all data os k8s clean
+.PHONY: all data os k8s imsdk clean
 
-all: data os k8s
+all: data os k8s imsdk
 
 # 生成数据密集型系统图（PNG/PDF）
 data:
@@ -16,8 +16,13 @@ os:
 k8s:
 	$(PY) k8s_diagram.py
 
+# 生成 IM SDK 设计图（PNG/PDF）
+imsdk:
+	$(PY) im_sdk_diagram.py
+
 # 清理输出文件
 clean:
 	rm -f data_intensive_system.png data_intensive_system.pdf \
 	      os_design.png os_design.pdf \
-	      k8s_design.png k8s_design.pdf
+	      k8s_design.png k8s_design.pdf \
+	      im_sdk_design.png im_sdk_design.pdf

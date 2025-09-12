@@ -3,7 +3,7 @@ from diagrams.onprem.compute import Server
 
 
 def create_nlp_diagram(filename: str, outformat: str) -> None:
-    with Diagram("自然语言处理系统设计图（含多语言/对话/IR/QA）", filename=filename, show=False, outformat=outformat, direction="LR"):
+    with Diagram("自然语言处理系统设计图（含多语言/对话/IR/QA/RAG/分析）", filename=filename, show=False, outformat=outformat, direction="LR"):
         with Cluster("数据管道"):
             corpus = Server("语料来源（爬取/日志/标注）")
             cleaning = Server("清洗/去噪/脱敏")
@@ -28,10 +28,18 @@ def create_nlp_diagram(filename: str, outformat: str) -> None:
             ner = Server("命名实体识别 NER")
             parse = Server("依存/成分句法")
             tfidf = Server("TF-IDF/关键词")
+            sentiment = Server("情感分析")
+            topic = Server("主题模型（LDA/Top2Vec）")
+            summary = Server("文本摘要（抽取/生成）")
+            correction = Server("文本纠错/拼写")
             embedding >> pos
             embedding >> ner
             embedding >> parse
             embedding >> tfidf
+            embedding >> sentiment
+            embedding >> topic
+            embedding >> summary
+            embedding >> correction
 
         with Cluster("神经网络模型"):
             rnn = Server("RNN/LSTM/GRU")
@@ -54,12 +62,18 @@ def create_nlp_diagram(filename: str, outformat: str) -> None:
             nlu >> dm >> nlg
             kb >> dm
 
-        with Cluster("信息检索与问答"):
+        with Cluster("信息检索与问答（IR/QA & RAG）"):
             index = Server("倒排索引/向量索引")
             retriever = Server("检索器（BM25/ANN）")
-            reader = Server("阅读理解/抽取式 QA")
             reranker = Server("重排器")
-            index >> retriever >> reranker >> reader
+            reader = Server("阅读理解/抽取式 QA")
+            embedder = Server("Embedding 生成")
+            vector_store = Server("向量库")
+            rag = Server("RAG 构造（检索增强生成）")
+            index >> retriever >> reranker
+            embedder >> vector_store >> retriever
+            retriever >> reader
+            retriever >> rag
 
         with Cluster("训练与评估"):
             train = Server("训练/微调")
@@ -91,6 +105,10 @@ def create_nlp_diagram(filename: str, outformat: str) -> None:
         mt_model >> Edge(label="平行语料训练") >> train
         nlu >> Edge(label="特征/标签") >> train
         retriever >> Edge(label="召回样本") >> train
+        sentiment >> Edge(label="标签/特征") >> train
+        topic >> Edge(label="标签/特征") >> train
+        summary >> Edge(label="标签/特征") >> train
+        correction >> Edge(label="标签/特征") >> train
 
         # 服务链路
         online >> Edge(label="日志/指标") >> logging
@@ -98,10 +116,15 @@ def create_nlp_diagram(filename: str, outformat: str) -> None:
         feedback >> Edge(label="数据改进") >> cleaning
         online >> Edge(label="多语言翻译") >> mt_model
         online >> Edge(label="对话理解") >> nlu
+        online >> Edge(label="情感/主题/纠错/摘要") >> sentiment
+        online >> Edge(label="情感/主题/纠错/摘要") >> topic
+        online >> Edge(label="情感/主题/纠错/摘要") >> correction
+        online >> Edge(label="摘要") >> summary
         dm >> Edge(label="检索答案") >> retriever
         retriever >> Edge(label="阅读/抽取") >> reader
         reader >> Edge(label="答案/证据") >> online
-        nlg >> Edge(label="回复文本") >> online
+        rag >> Edge(label="生成回答") >> online
+        reranker >> Edge(label="候选过滤") >> rag
         align >> Edge(label="术语/短语表") >> nlg
         index >> Edge(label="索引更新") >> cache
 

@@ -8,6 +8,7 @@
 - IM 系统 SDK 设计（im_sdk_design）及变体（mobile/desktop/web）与 RTC（im_sdk_rtc）
 - 大数据系统（big_data_design）
 - 数据挖掘系统（data_mining_design）
+- 软件工程体系（software_engineering）
 
 ## 依赖
 
@@ -44,6 +45,8 @@ python3 im_sdk_rtc_diagram.py
 python3 big_data_diagram.py
 # 数据挖掘
 python3 data_mining_diagram.py
+# 软件工程
+python3 software_engineering_diagram.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -52,7 +55,7 @@ python3 data_mining_diagram.py
 # 生成全部
 make all
 # 单独生成
-make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining
+make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se
 # 清理
 make clean
 ```
@@ -64,6 +67,7 @@ make clean
 - `k8s_design.(png|pdf)`
 - `im_sdk_design.(png|pdf)`、`im_sdk_mobile.(png|pdf)`、`im_sdk_desktop.(png|pdf)`、`im_sdk_web.(png|pdf)`、`im_sdk_rtc.(png|pdf)`
 - `big_data_design.(png|pdf)`、`data_mining_design.(png|pdf)`
+- `software_engineering.(png|pdf)`
 
 ## 说明
 

@@ -1,8 +1,8 @@
 PY=python3
 
-.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining clean
+.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se clean
 
-all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining
+all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se
 
 # 生成数据密集型系统图（PNG/PDF）
 data:
@@ -44,6 +44,10 @@ bigdata:
 datamining:
 	$(PY) data_mining_diagram.py
 
+# 生成 软件工程体系图
+se:
+	$(PY) software_engineering_diagram.py
+
 # 清理输出文件
 clean:
 	rm -f data_intensive_system.png data_intensive_system.pdf \
@@ -55,4 +59,5 @@ clean:
 	      im_sdk_web.png im_sdk_web.pdf \
 	      im_sdk_rtc.png im_sdk_rtc.pdf \
 	      big_data_design.png big_data_design.pdf \
-	      data_mining_design.png data_mining_design.pdf
+	      data_mining_design.png data_mining_design.pdf \
+	      software_engineering.png software_engineering.pdf

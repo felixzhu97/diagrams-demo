@@ -1,8 +1,8 @@
 PY=python3
 
-.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se clean
+.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai clean
 
-all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se
+all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai
 
 # 生成数据密集型系统图（PNG/PDF）
 data:
@@ -48,6 +48,10 @@ datamining:
 se:
 	$(PY) software_engineering_diagram.py
 
+# 生成 人工智能系统图
+ai:
+	$(PY) ai_diagram.py
+
 # 清理输出文件
 clean:
 	rm -f data_intensive_system.png data_intensive_system.pdf \
@@ -60,4 +64,5 @@ clean:
 	      im_sdk_rtc.png im_sdk_rtc.pdf \
 	      big_data_design.png big_data_design.pdf \
 	      data_mining_design.png data_mining_design.pdf \
-	      software_engineering.png software_engineering.pdf
+	      software_engineering.png software_engineering.pdf \
+	      ai_design.png ai_design.pdf

@@ -10,6 +10,7 @@
 - 数据挖掘系统（data_mining_design）
 - 软件工程体系（software_engineering）
 - 人工智能系统（ai_design）
+- 云计算架构（cloud_computing）
 
 ## 依赖
 
@@ -50,6 +51,8 @@ python3 data_mining_diagram.py
 python3 software_engineering_diagram.py
 # 人工智能
 python3 ai_diagram.py
+# 云计算
+python3 cloud_computing_diagram.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -58,7 +61,7 @@ python3 ai_diagram.py
 # 生成全部
 make all
 # 单独生成
-make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai
+make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai | make cloud
 # 清理
 make clean
 ```
@@ -72,6 +75,7 @@ make clean
 - `big_data_design.(png|pdf)`、`data_mining_design.(png|pdf)`
 - `software_engineering.(png|pdf)`
 - `ai_design.(png|pdf)`
+- `cloud_computing.(png|pdf)`
 
 ## 说明
 

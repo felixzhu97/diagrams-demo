@@ -1,8 +1,8 @@
 PY=python3
 
-.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud clean
+.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud im-er clean
 
-all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud
+all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud im-er
 
 # 生成数据密集型系统图（PNG/PDF）
 data:
@@ -56,6 +56,10 @@ ai:
 cloud:
 	$(PY) cloud_computing_diagram.py
 
+# 生成 IM 系统 ER 图
+im-er:
+	$(PY) im_er_diagram.py
+
 # 清理输出文件
 clean:
 	rm -f data_intensive_system.png data_intensive_system.pdf \
@@ -70,4 +74,5 @@ clean:
 	      data_mining_design.png data_mining_design.pdf \
 	      software_engineering.png software_engineering.pdf \
 	      ai_design.png ai_design.pdf \
-	      cloud_computing.png cloud_computing.pdf
+	      cloud_computing.png cloud_computing.pdf \
+	      im_er_design.png im_er_design.pdf

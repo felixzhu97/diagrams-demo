@@ -11,6 +11,7 @@
 - 软件工程体系（software_engineering）
 - 人工智能系统（ai_design）
 - 云计算架构（cloud_computing）
+- IM 系统 ER 图（im_er_design）
 
 ## 依赖
 
@@ -53,6 +54,8 @@ python3 software_engineering_diagram.py
 python3 ai_diagram.py
 # 云计算
 python3 cloud_computing_diagram.py
+# IM ER 图
+python3 im_er_diagram.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -61,7 +64,7 @@ python3 cloud_computing_diagram.py
 # 生成全部
 make all
 # 单独生成
-make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai | make cloud
+make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai | make cloud | make im-er
 # 清理
 make clean
 ```
@@ -76,6 +79,7 @@ make clean
 - `software_engineering.(png|pdf)`
 - `ai_design.(png|pdf)`
 - `cloud_computing.(png|pdf)`
+- `im_er_design.(png|pdf)`
 
 ## 说明
 

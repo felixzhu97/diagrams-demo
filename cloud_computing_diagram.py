@@ -3,13 +3,25 @@ from diagrams.onprem.compute import Server
 
 
 def create_cloud_diagram(filename: str, outformat: str) -> None:
-    with Diagram("云计算架构设计图（含互联与FinOps）", filename=filename, show=False, outformat=outformat, direction="LR"):
+    with Diagram("云计算架构设计图（含互联/FinOps/合规）", filename=filename, show=False, outformat=outformat, direction="LR"):
         with Cluster("控制面（Control Plane）"):
             cp_api = Server("API/Console")
             cp_iam = Server("IAM/Policy")
             cp_cmdb = Server("CMDB/资源目录")
             cp_billing = Server("计费/配额")
             cp_api >> cp_iam >> cp_cmdb >> cp_billing
+
+        with Cluster("组织与多租户"):
+            org = Server("Organization/OU")
+            accounts = Server("多账户/租户隔离")
+            idp = Server("企业 IdP/SSO")
+            org >> accounts
+            idp >> cp_iam
+
+        with Cluster("跨账户访问"):
+            sts = Server("STS/AssumeRole")
+            ram = Server("跨账户授权/RAM")
+            ram >> sts
 
         with Cluster("计算（Compute）"):
             vm = Server("虚拟机/Auto Scaling")
@@ -58,8 +70,11 @@ def create_cloud_diagram(filename: str, outformat: str) -> None:
             waf = Server("WAF/防护")
             kms = Server("KMS/密钥")
             audit = Server("审计/合规")
+            baseline = Server("合规基线（CIS/ISO27001）")
             waf >> audit
             kms >> audit
+            baseline >> audit
+            baseline >> cp_iam
 
         with Cluster("FinOps/成本优化"):
             cost_analyzer = Server("成本分析")
@@ -115,6 +130,12 @@ def create_cloud_diagram(filename: str, outformat: str) -> None:
         metrics >> Edge(label="利用率/成本指标") >> cost_analyzer
         cost_analyzer >> Edge(label="建议/阈值") >> rightsizing
         budget_alert >> Edge(label="通知/阻断") >> cp_api
+
+        # 组织与跨账户
+        cp_iam >> Edge(label="跨账户策略") >> ram
+        ram >> Edge(label="临时凭证") >> sts
+        sts >> Edge(label="AssumeRole 访问资源") >> vpc
+        org >> Edge(label="策略下发/隔离") >> cp_iam
 
 
 if __name__ == "__main__":

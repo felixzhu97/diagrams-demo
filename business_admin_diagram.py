@@ -3,12 +3,17 @@ from diagrams.onprem.compute import Server
 
 
 def create_business_admin_diagram(filename: str, outformat: str) -> None:
-    with Diagram("工商管理系统设计图", filename=filename, show=False, outformat=outformat, direction="LR"):
+    with Diagram("工商管理系统设计图（含 MDM 与三大流程）", filename=filename, show=False, outformat=outformat, direction="LR"):
         with Cluster("门户与中台"):
             portal = Server("统一门户/SSO")
             bpm = Server("流程引擎/BPM")
             esb = Server("集成总线/ESB")
             portal >> bpm >> esb
+
+        with Cluster("主数据管理 MDM"):
+            mdm = Server("主数据中心（组织/客户/供应商/物料）")
+            mdm_sync = Server("主数据同步/订阅")
+            mdm >> mdm_sync
 
         with Cluster("人力资源 HRM"):
             hr_core = Server("员工主数据")
@@ -75,6 +80,12 @@ def create_business_admin_diagram(filename: str, outformat: str) -> None:
             gov = Server("监管/政府平台")
             courier = Server("三方物流/快递")
 
+        # MDM 主数据同步
+        mdm_sync >> Edge(label="组织/客户/供应商/物料") >> hr_core
+        mdm_sync >> Edge(label="供应商/物料") >> supplier
+        mdm_sync >> Edge(label="物料/BOM") >> bom
+        mdm_sync >> Edge(label="客户/合同") >> crm
+
         # 关键链路
         esb >> Edge(label="主数据") >> hr_core
         esb >> Edge(label="主数据") >> supplier
@@ -95,6 +106,23 @@ def create_business_admin_diagram(filename: str, outformat: str) -> None:
         compliance >> Edge(label="制度/准入") >> esb
         risk >> Edge(label="权限策略") >> portal
         audit >> Edge(label="审计记录") >> dwh
+
+        # 三大流程
+        # 报销（Expense）：员工->报销单->审批->应付->付款
+        hr_core >> Edge(label="费用申请/报销单") >> bpm
+        bpm >> Edge(label="审批通过") >> ap
+        ap >> Edge(label="生成付款") >> bank
+
+        # P2P（Procure-to-Pay）：采购申请->下单->收货->应付->付款
+        procurement >> Edge(label="下单/入库") >> wms
+        wms >> Edge(label="对账") >> ap
+        ap >> Edge(label="付款") >> bank
+
+        # O2C（Order-to-Cash）：线索->商机->订单->发货->应收->回款
+        crm >> Edge(label="商机转订单") >> sales
+        sales >> Edge(label="出库/发货") >> wms
+        wms >> Edge(label="开票/应收") >> ar
+        ar >> Edge(label="回款") >> bank
 
 
 if __name__ == "__main__":

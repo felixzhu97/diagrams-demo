@@ -18,9 +18,6 @@ from diagrams.onprem.monitoring import Grafana
 # from diagrams.onprem.ml import Mlflow
 from diagrams import Edge
 
-with Diagram("Web Service", show=False):
-    ELB("Load Balancer") >> EC2("Web Server") >> RDS("Database")
-
 
 def create_data_intensive_diagram(filename: str, outformat: str) -> None:
     with Diagram("数据密集型系统设计", filename=filename, show=False, outformat=outformat, direction="LR"):
@@ -113,8 +110,35 @@ def create_data_intensive_diagram(filename: str, outformat: str) -> None:
                 cni = Server("CNI")
                 svc = Server("Service")
                 ingress = Server("Ingress")
+                ingress_ctl = Server("Ingress Controller")
+                ingress_ctl >> ingress
                 cni >> svc
                 ingress >> svc
+
+            with Cluster("Kubernetes 节点组件（kubelet/kube-proxy/CRI）"):
+                kubelet = Server("kubelet")
+                kube_proxy = Server("kube-proxy")
+                cri = Server("CRI (containerd/CRI-O)")
+                kubelet >> cri
+                kube_proxy >> cni
+
+            with Cluster("Kubernetes 命名空间（多租户隔离）"):
+                ns_prod = Server("namespace: prod")
+                ns_dev = Server("namespace: dev")
+
+            with Cluster("Kubernetes 自动伸缩（HPA/VPA）"):
+                hpa = Server("HPA")
+                vpa = Server("VPA")
+
+            with Cluster("Kubernetes 扩展（Operator/CRD）"):
+                crd = Server("CRD")
+                operator = Server("Operator")
+                operator >> crd
+
+            with Cluster("Service Mesh（Istio）"):
+                istiod = Server("istiod")
+                sidecar = Server("Envoy Sidecar")
+                istiod >> sidecar
 
         # 次区域 / 容灾区域
         with Cluster("Region B（容灾区域）"):
@@ -152,6 +176,7 @@ def create_data_intensive_diagram(filename: str, outformat: str) -> None:
 
         # K8s 关联路径
         users >> Edge(label="HTTP") >> ingress
+        ingress_ctl >> Edge(label="L7 控制") >> ingress
         ingress >> Edge(label="L4/L7 路由") >> svc
         svc >> Edge(label="Pods 负载均衡") >> pods
         pods >> Edge(label="调用") >> app
@@ -160,6 +185,15 @@ def create_data_intensive_diagram(filename: str, outformat: str) -> None:
         pods >> Edge(label="缓存") >> cache
         pods >> Edge(label="索引") >> search
         pods >> Edge(label="PVC 绑定") >> pvc
+        kubelet >> Edge(label="管理 Pod/容器") >> pods
+        hpa >> Edge(label="水平伸缩") >> deployments
+        vpa >> Edge(label="垂直伸缩") >> deployments
+        operator >> Edge(label="编排/自定义逻辑") >> pods
+        crd >> Edge(label="扩展 API") >> k8s_api
+        sidecar >> Edge(label="东西向流量/可观测") >> pods
+        ns_prod >> Edge(label="资源/策略") >> pods
+        ns_dev >> Edge(label="资源/策略") >> pods
+        k8s_api >> Edge(label="心跳/状态") >> kubelet
 
         # Kubernetes 控制面交互
         k8s_api >> Edge(label="调度") >> scheduler

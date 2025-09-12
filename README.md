@@ -22,6 +22,8 @@
 - Instagram 技术栈（instagram_tech_stack）
 - Amazon 技术栈（amazon_tech_stack）
 - Apple 技术栈（apple_tech_stack）
+- Microsoft 技术栈（microsoft_tech_stack）
+- Google 技术栈（google_tech_stack）
 
 ## 依赖
 
@@ -85,6 +87,10 @@ python3 instagram_tech_stack.py
 python3 amazon_tech_stack.py
 # Apple 技术栈
 python3 apple_tech_stack.py
+# Microsoft 技术栈
+python3 microsoft_tech_stack.py
+# Google 技术栈
+python3 google_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成

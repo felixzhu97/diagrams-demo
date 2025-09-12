@@ -3,7 +3,7 @@ from diagrams.onprem.compute import Server
 
 
 def create_nlp_diagram(filename: str, outformat: str) -> None:
-    with Diagram("自然语言处理系统设计图", filename=filename, show=False, outformat=outformat, direction="LR"):
+    with Diagram("自然语言处理系统设计图（含多语言/对话/IR/QA）", filename=filename, show=False, outformat=outformat, direction="LR"):
         with Cluster("数据管道"):
             corpus = Server("语料来源（爬取/日志/标注）")
             cleaning = Server("清洗/去噪/脱敏")
@@ -40,6 +40,27 @@ def create_nlp_diagram(filename: str, outformat: str) -> None:
             seq2seq = Server("Seq2Seq/Attention")
             transformer >> seq2seq
 
+        with Cluster("多语言与机器翻译"):
+            mbert = Server("mBERT/XLM-R")
+            mt_model = Server("NMT/Transformer")
+            align = Server("词对齐/术语表")
+            mbert >> mt_model >> align
+
+        with Cluster("对话系统"):
+            nlu = Server("NLU 意图/槽位")
+            dm = Server("对话管理/策略")
+            nlg = Server("NLG 文本生成")
+            kb = Server("知识库/FAQ")
+            nlu >> dm >> nlg
+            kb >> dm
+
+        with Cluster("信息检索与问答"):
+            index = Server("倒排索引/向量索引")
+            retriever = Server("检索器（BM25/ANN）")
+            reader = Server("阅读理解/抽取式 QA")
+            reranker = Server("重排器")
+            index >> retriever >> reranker >> reader
+
         with Cluster("训练与评估"):
             train = Server("训练/微调")
             metrics = Server("评估指标（BLEU/F1/ROUGE）")
@@ -66,9 +87,23 @@ def create_nlp_diagram(filename: str, outformat: str) -> None:
         tfidf >> Edge(label="特征供给") >> train
         seq2seq >> Edge(label="编码器/解码器") >> train
         transformer >> Edge(label="上下文表示") >> train
+        mbert >> Edge(label="跨语言表示") >> train
+        mt_model >> Edge(label="平行语料训练") >> train
+        nlu >> Edge(label="特征/标签") >> train
+        retriever >> Edge(label="召回样本") >> train
+
+        # 服务链路
         online >> Edge(label="日志/指标") >> logging
         batch >> Edge(label="结果分析") >> logging
         feedback >> Edge(label="数据改进") >> cleaning
+        online >> Edge(label="多语言翻译") >> mt_model
+        online >> Edge(label="对话理解") >> nlu
+        dm >> Edge(label="检索答案") >> retriever
+        retriever >> Edge(label="阅读/抽取") >> reader
+        reader >> Edge(label="答案/证据") >> online
+        nlg >> Edge(label="回复文本") >> online
+        align >> Edge(label="术语/短语表") >> nlg
+        index >> Edge(label="索引更新") >> cache
 
 
 if __name__ == "__main__":

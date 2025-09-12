@@ -24,6 +24,7 @@
 - Apple 技术栈（apple_tech_stack）
 - Microsoft 技术栈（microsoft_tech_stack）
 - Google 技术栈（google_tech_stack）
+- Meta 技术栈（meta_tech_stack）
 
 ## 依赖
 
@@ -91,6 +92,8 @@ python3 apple_tech_stack.py
 python3 microsoft_tech_stack.py
 # Google 技术栈
 python3 google_tech_stack.py
+# Meta 技术栈
+python3 meta_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -126,6 +129,9 @@ make clean
 - `instagram_tech_stack.(png|pdf)`
 - `amazon_tech_stack.(png|pdf)`
 - `apple_tech_stack.(png|pdf)`
+- `microsoft_tech_stack.(png|pdf)`
+- `google_tech_stack.(png|pdf)`
+- `meta_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -169,8 +175,33 @@ make clean
 - **Core ML**: 设备端机器学习框架
 - **iCloud 生态**: 完整的云端服务套件
 
+### Microsoft 技术栈
+
+- **.NET 生态**: 统一的跨平台开发框架
+- **Azure 云服务**: 完整的云计算平台
+- **Office 365**: 生产力工具套件
+- **Visual Studio**: 强大的 IDE 工具链
+- **TypeScript**: JavaScript 的超集语言
+
+### Google 技术栈
+
+- **Go 语言**: 谷歌开发的并发编程语言
+- **Kubernetes**: 容器编排的业界标准
+- **TensorFlow**: 开源的机器学习框架
+- **BigQuery**: 强大的数据仓库和分析平台
+- **Firebase**: 移动和 Web 应用开发平台
+
+### Meta 技术栈
+
+- **React 生态**: 前端 UI 框架的领导者
+- **Hack 语言**: 基于 PHP 的现代编程语言
+- **HHVM**: 高性能 PHP/Hack 虚拟机
+- **GraphQL**: 灵活的 API 查询语言
+- **PyTorch**: 开源的深度学习框架
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
+- 项目包含 **11 个系统架构设计** 和 **8 个知名公司技术栈**，总计 **19 个** 不同的技术架构图表。

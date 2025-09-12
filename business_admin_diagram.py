@@ -1,23 +1,34 @@
 from diagrams import Diagram, Cluster, Edge
 from diagrams.onprem.compute import Server
+from diagrams.onprem.client import Users
+from diagrams.onprem.network import Nginx, Kong
+from diagrams.onprem.database import PostgreSQL, MySQL
+from diagrams.onprem.analytics import Tableau, PowerBI
+from diagrams.onprem.workflow import Airflow
+from diagrams.onprem.monitoring import Grafana
+from diagrams.onprem.security import Vault
+from diagrams.generic.compute import Rack
+from diagrams.generic.database import SQL
+from diagrams.generic.network import Router, Firewall
+from diagrams.generic.storage import Storage
 
 
 def create_business_admin_diagram(filename: str, outformat: str) -> None:
     with Diagram("工商管理系统设计图（含 MDM 与三大流程）", filename=filename, show=False, outformat=outformat, direction="LR"):
         with Cluster("门户与中台"):
-            portal = Server("统一门户/SSO")
-            bpm = Server("流程引擎/BPM")
-            esb = Server("集成总线/ESB")
+            portal = Users("统一门户/SSO")
+            bpm = Airflow("流程引擎/BPM")
+            esb = Kong("集成总线/ESB")
             portal >> bpm >> esb
 
         with Cluster("主数据管理 MDM"):
-            mdm = Server("主数据中心（组织/客户/供应商/物料）")
-            mdm_sync = Server("主数据同步/订阅")
+            mdm = PostgreSQL("主数据中心（组织/客户/供应商/物料）")
+            mdm_sync = Router("主数据同步/订阅")
             mdm >> mdm_sync
 
         with Cluster("人力资源 HRM"):
-            hr_core = Server("员工主数据")
-            payroll = Server("薪酬/社保")
+            hr_core = Users("员工主数据")
+            payroll = Rack("薪酬/社保")
             attendance = Server("考勤/排班")
             performance = Server("绩效/考核")
             hr_core >> payroll
@@ -25,60 +36,60 @@ def create_business_admin_diagram(filename: str, outformat: str) -> None:
             performance >> hr_core
 
         with Cluster("财务 Finance"):
-            gl = Server("总账/财务核算")
-            ap = Server("应付/费用")
-            ar = Server("应收/发票")
-            asset = Server("固定资产")
-            budget = Server("预算管理")
+            gl = SQL("总账/财务核算")
+            ap = Rack("应付/费用")
+            ar = Rack("应收/发票")
+            asset = Storage("固定资产")
+            budget = Rack("预算管理")
             ap >> gl
             ar >> gl
             asset >> gl
             budget >> gl
 
         with Cluster("客户与销售 CRM/Sales"):
-            crm = Server("客户管理/线索/商机")
-            sales = Server("销售订单/报价")
-            contract = Server("合同/回款")
+            crm = Users("客户管理/线索/商机")
+            sales = Rack("销售订单/报价")
+            contract = Rack("合同/回款")
             crm >> sales >> contract
 
         with Cluster("采购与供应链 SCM"):
-            procurement = Server("采购申请/询价/下单")
-            supplier = Server("供应商管理")
-            wms = Server("仓储/入库/出库")
-            logistics = Server("物流/配送")
+            procurement = Rack("采购申请/询价/下单")
+            supplier = Users("供应商管理")
+            wms = Storage("仓储/入库/出库")
+            logistics = Router("物流/配送")
             procurement >> supplier
             procurement >> wms >> logistics
 
         with Cluster("库存与生产 MRP/ERP"):
-            bom = Server("BOM/物料")
-            mrp = Server("MRP/计划")
+            bom = SQL("BOM/物料")
+            mrp = Rack("MRP/计划")
             mes = Server("生产执行 MES")
-            qc = Server("质检/QC")
-            wms2 = Server("库存/库位")
+            qc = Rack("质检/QC")
+            wms2 = Storage("库存/库位")
             bom >> mrp >> mes >> qc >> wms2
 
         with Cluster("项目与协作"):
-            pm = Server("项目管理/里程碑")
-            doc = Server("文档/知识库")
+            pm = Airflow("项目管理/里程碑")
+            doc = Storage("文档/知识库")
             pm >> doc
 
         with Cluster("合规与审计"):
-            compliance = Server("合规模型/制度")
-            audit = Server("审计/内控")
-            risk = Server("风险/权限治理")
+            compliance = Vault("合规模型/制度")
+            audit = Rack("审计/内控")
+            risk = Firewall("风险/权限治理")
             compliance >> audit >> risk
 
         with Cluster("报表与分析"):
-            dwh = Server("数据仓库/DW")
-            bi = Server("BI/可视化")
-            plan = Server("经营分析/预测")
+            dwh = PostgreSQL("数据仓库/DW")
+            bi = Tableau("BI/可视化")
+            plan = PowerBI("经营分析/预测")
             dwh >> bi >> plan
 
         with Cluster("对外集成"):
-            tax = Server("税务平台/电子发票")
-            bank = Server("银行/银企直连")
-            gov = Server("监管/政府平台")
-            courier = Server("三方物流/快递")
+            tax = Nginx("税务平台/电子发票")
+            bank = Nginx("银行/银企直连")
+            gov = Nginx("监管/政府平台")
+            courier = Router("三方物流/快递")
 
         # MDM 主数据同步
         mdm_sync >> Edge(label="组织/客户/供应商/物料") >> hr_core

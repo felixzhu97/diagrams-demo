@@ -3,7 +3,7 @@ from diagrams.onprem.compute import Server
 
 
 def create_software_engineering_diagram(filename: str, outformat: str) -> None:
-    with Diagram("软件工程体系设计图", filename=filename, show=False, outformat=outformat, direction="LR"):
+    with Diagram("软件工程体系设计图（含质量门禁与SRE）", filename=filename, show=False, outformat=outformat, direction="LR"):
         with Cluster("需求与规划"):
             stakeholders = Server("干系人/需求")
             roadmap = Server("Roadmap/OKR")
@@ -76,6 +76,20 @@ def create_software_engineering_diagram(filename: str, outformat: str) -> None:
             velocity = Server("速率/燃尽")
             board >> velocity
 
+        with Cluster("质量门禁矩阵"):
+            coverage = Server("覆盖率阈值")
+            dup_code = Server("重复代码阈值")
+            sec_gate = Server("安全阈值（高危=0）")
+            style_gate = Server("风格/静态检查")
+            coverage >> dup_code >> sec_gate >> style_gate
+
+        with Cluster("SRE 实践"):
+            slo = Server("SLO/错误预算")
+            circuit = Server("熔断/降级")
+            rate_limit = Server("限流")
+            chaos = Server("混沌演练")
+            slo >> circuit >> rate_limit >> chaos
+
         # 主链路
         backlog >> Edge(label="方案/设计") >> adr
         standards >> Edge(label="实现") >> vcs
@@ -93,6 +107,18 @@ def create_software_engineering_diagram(filename: str, outformat: str) -> None:
         release >> Edge(label="流量控制") >> env_prod
         feature_flag >> Edge(label="动态开关") >> env_prod
         tracing >> Edge(label="瓶颈定位") >> postmortem
+
+        # 质量门禁与流水线联动
+        coverage >> Edge(label="阈值校验") >> test
+        dup_code >> Edge(label="阈值校验") >> scan
+        sec_gate >> Edge(label="阻断风险") >> scan
+        style_gate >> Edge(label="规范校验") >> precommit
+
+        # SRE 与生产联动
+        slo >> Edge(label="预算消耗/报警") >> metrics
+        circuit >> Edge(label="保护下游") >> env_prod
+        rate_limit >> Edge(label="稳定性") >> env_prod
+        chaos >> Edge(label="演练/验证") >> env_stg
 
 
 if __name__ == "__main__":

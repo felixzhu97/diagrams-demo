@@ -3,7 +3,7 @@ from diagrams.onprem.compute import Server
 
 
 def create_cloud_diagram(filename: str, outformat: str) -> None:
-    with Diagram("云计算架构设计图", filename=filename, show=False, outformat=outformat, direction="LR"):
+    with Diagram("云计算架构设计图（含互联与FinOps）", filename=filename, show=False, outformat=outformat, direction="LR"):
         with Cluster("控制面（Control Plane）"):
             cp_api = Server("API/Console")
             cp_iam = Server("IAM/Policy")
@@ -30,7 +30,15 @@ def create_cloud_diagram(filename: str, outformat: str) -> None:
             lb = Server("负载均衡")
             gw = Server("网关/NAT/IGW")
             dns = Server("DNS/解析")
+            vpce = Server("VPC Endpoint")
+            peering = Server("VPC Peering")
+            vpn = Server("VPN 网关")
+            dx = Server("专线 Direct Connect")
             vpc >> lb >> gw >> dns
+            vpc >> vpce
+            vpc >> peering
+            vpc >> vpn
+            vpc >> dx
 
         with Cluster("数据库与中间件"):
             rdb = Server("关系型数据库")
@@ -52,6 +60,13 @@ def create_cloud_diagram(filename: str, outformat: str) -> None:
             audit = Server("审计/合规")
             waf >> audit
             kms >> audit
+
+        with Cluster("FinOps/成本优化"):
+            cost_analyzer = Server("成本分析")
+            rightsizing = Server("规格优化/预留")
+            scheduling = Server("关停/调度节省")
+            budget_alert = Server("预算/告警")
+            cost_analyzer >> rightsizing >> scheduling >> budget_alert
 
         with Cluster("Region A（主区域）"):
             app_a = Server("应用集群 A")
@@ -88,6 +103,18 @@ def create_cloud_diagram(filename: str, outformat: str) -> None:
         object_store >> Edge(label="跨区域复制") >> app_b
         cache_a >> Edge(label="可选复制") >> cache_b
         app_a >> Edge(label="蓝绿/热备") >> app_b
+
+        # 互联场景
+        peering >> Edge(label="跨VPC互通") >> vpc
+        vpn >> Edge(label="混合云/分支互联") >> vpc
+        dx >> Edge(label="高带宽/低时延") >> vpc
+        vpce >> Edge(label="私网访问云服务") >> object_store
+
+        # FinOps 采集与反馈
+        cp_billing >> Edge(label="费用账单") >> cost_analyzer
+        metrics >> Edge(label="利用率/成本指标") >> cost_analyzer
+        cost_analyzer >> Edge(label="建议/阈值") >> rightsizing
+        budget_alert >> Edge(label="通知/阻断") >> cp_api
 
 
 if __name__ == "__main__":

@@ -5,9 +5,9 @@
 - 数据密集型系统设计（data_intensive_system）
 - 操作系统设计（os_design）
 - Kubernetes 子系统（k8s_design）
-- IM 系统 SDK 设计（im_sdk_design）
-- IM SDK 变体：移动端（im_sdk_mobile）、桌面端（im_sdk_desktop）、Web（im_sdk_web）
-- IM 实时音视频（im_sdk_rtc）
+- IM 系统 SDK 设计（im_sdk_design）及变体（mobile/desktop/web）与 RTC（im_sdk_rtc）
+- 大数据系统（big_data_design）
+- 数据挖掘系统（data_mining_design）
 
 ## 依赖
 
@@ -34,23 +34,25 @@ python3 diagram.py
 python3 os_diagram.py
 # K8s
 python3 k8s_diagram.py
-# IM SDK（通用）
+# IM SDK（通用/变体/Web/RTC）
 python3 im_sdk_diagram.py
-# IM SDK（移动端/桌面端/Web）
 python3 im_sdk_mobile_diagram.py
 python3 im_sdk_desktop_diagram.py
 python3 im_sdk_web_diagram.py
-# IM 实时音视频
 python3 im_sdk_rtc_diagram.py
+# 大数据
+python3 big_data_diagram.py
+# 数据挖掘
+python3 data_mining_diagram.py
 ```
 
 ## 使用 Makefile 一键生成
 
 ```bash
 # 生成全部
-dmake all
+make all
 # 单独生成
-dmake data | dmake os | dmake k8s | dmake imsdk | dmake imsdk-mobile | dmake imsdk-desktop | dmake imsdk-web | dmake imsdk-rtc
+make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining
 # 清理
 make clean
 ```
@@ -60,9 +62,8 @@ make clean
 - `data_intensive_system.(png|pdf)`
 - `os_design.(png|pdf)`
 - `k8s_design.(png|pdf)`
-- `im_sdk_design.(png|pdf)`
-- `im_sdk_mobile.(png|pdf)`、`im_sdk_desktop.(png|pdf)`、`im_sdk_web.(png|pdf)`
-- `im_sdk_rtc.(png|pdf)`
+- `im_sdk_design.(png|pdf)`、`im_sdk_mobile.(png|pdf)`、`im_sdk_desktop.(png|pdf)`、`im_sdk_web.(png|pdf)`、`im_sdk_rtc.(png|pdf)`
+- `big_data_design.(png|pdf)`、`data_mining_design.(png|pdf)`
 
 ## 说明
 

@@ -85,6 +85,37 @@ def create_data_intensive_diagram(filename: str, outformat: str) -> None:
                 archive_store = Server("Archive Storage")
                 backup_svc >> archive_store
 
+            # Kubernetes 子系统
+            with Cluster("Kubernetes 控制面（API/调度/控制器）"):
+                k8s_api = Server("kube-apiserver")
+                scheduler = Server("kube-scheduler")
+                controller = Server("kube-controller-manager")
+                etcd = Server("etcd")
+                k8s_api >> controller
+                k8s_api >> scheduler
+                k8s_api >> etcd
+
+            with Cluster("Kubernetes 工作负载（Pods/Deployments/Jobs）"):
+                pods = Server("Pods")
+                deployments = Server("Deployments")
+                jobs = Server("Jobs")
+                deployments >> pods
+                jobs >> pods
+
+            with Cluster("Kubernetes 存储（CSI/PV/PVC）"):
+                csi = Server("CSI Driver")
+                pv = Server("PersistentVolume")
+                pvc = Server("PersistentVolumeClaim")
+                pvc >> pv
+                csi >> pv
+
+            with Cluster("Kubernetes 网络（CNI/Ingress/Service）"):
+                cni = Server("CNI")
+                svc = Server("Service")
+                ingress = Server("Ingress")
+                cni >> svc
+                ingress >> svc
+
         # 次区域 / 容灾区域
         with Cluster("Region B（容灾区域）"):
             app_b = Server("App (DR)")
@@ -119,25 +150,24 @@ def create_data_intensive_diagram(filename: str, outformat: str) -> None:
         feature_store >> Edge(label="Features") >> serving_api
         serving_api >> Edge(label="Responses") >> users
 
-        # Observability
-        app >> Edge(label="Metrics") >> metrics
-        stream_proc >> Edge(label="Metrics") >> metrics
-        etl_jobs >> Edge(label="Metrics") >> metrics
+        # K8s 关联路径
+        users >> Edge(label="HTTP") >> ingress
+        ingress >> Edge(label="L4/L7 路由") >> svc
+        svc >> Edge(label="Pods 负载均衡") >> pods
+        pods >> Edge(label="调用") >> app
+        pods >> Edge(label="流式/批处理") >> stream_proc
+        pods >> Edge(label="写入") >> db_primary
+        pods >> Edge(label="缓存") >> cache
+        pods >> Edge(label="索引") >> search
+        pods >> Edge(label="PVC 绑定") >> pvc
 
-        # Governance & Security hooks
-        users >> Edge(label="AuthN/Z") >> iam
-        app >> Edge(label="AuthZ Check") >> iam
-        warehouse >> Edge(label="Catalog / Lineage") >> catalog
-        data_lake >> Edge(label="Catalog / Lineage") >> catalog
-        etl_jobs >> Edge(label="Lineage") >> audit
-        db_primary >> Edge(label="Masking Policies") >> dlp
+        # Kubernetes 控制面交互
+        k8s_api >> Edge(label="调度") >> scheduler
+        k8s_api >> Edge(label="协调/控制") >> controller
+        controller >> Edge(label="状态存储") >> etcd
+        scheduler >> Edge(label="分配节点/创建 Pod") >> pods
 
-        # Backup & Archival
-        db_primary >> Edge(label="Backup") >> backup_svc
-        warehouse >> Edge(label="Backup") >> backup_svc
-        data_lake >> Edge(label="Snapshots") >> archive_store
-
-        # 跨区域容灾复制
+        # 容灾复制
         db_primary >> Edge(label="异步复制") >> db_dr
         warehouse >> Edge(label="快照/复制") >> warehouse_b
         cache >> Edge(label="可选复制") >> cache_b

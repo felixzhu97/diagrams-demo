@@ -12,6 +12,7 @@
 - 人工智能系统（ai_design）
 - 云计算架构（cloud_computing）
 - 自然语言处理系统（nlp_design）
+- 工商管理系统（business_admin）
 
 ## 依赖
 
@@ -56,6 +57,8 @@ python3 ai_diagram.py
 python3 cloud_computing_diagram.py
 # 自然语言处理
 python3 nlp_diagram.py
+# 工商管理
+python3 business_admin_diagram.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -64,7 +67,7 @@ python3 nlp_diagram.py
 # 生成全部
 make all
 # 单独生成
-make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai | make cloud | make nlp
+make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai | make cloud | make nlp | make ba
 # 清理
 make clean
 ```
@@ -80,6 +83,7 @@ make clean
 - `ai_design.(png|pdf)`
 - `cloud_computing.(png|pdf)`
 - `nlp_design.(png|pdf)`
+- `business_admin.(png|pdf)`
 
 ## 说明
 

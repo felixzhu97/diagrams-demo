@@ -32,6 +32,7 @@
 - SAP 技术栈（sap_tech_stack）
 - PayPal 技术栈（paypal_tech_stack）
 - Stripe 技术栈（stripe_tech_stack）
+- OpenAI 技术栈（openai_tech_stack）
 
 ## 依赖
 
@@ -115,6 +116,8 @@ python3 sap_tech_stack.py
 python3 paypal_tech_stack.py
 # Stripe 技术栈
 python3 stripe_tech_stack.py
+# OpenAI 技术栈
+python3 openai_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -160,6 +163,7 @@ make clean
 - `sap_tech_stack.(png|pdf)`
 - `paypal_tech_stack.(png|pdf)`
 - `stripe_tech_stack.(png|pdf)`
+- `openai_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -277,15 +281,23 @@ make clean
 
 ### Stripe 技术栈
 
-- **API优先设计**: 开发者友好的RESTful API和SDK
+- **API 优先设计**: 开发者友好的 RESTful API 和 SDK
 - **支付基础设施**: 全球支付网络和多种支付方式支持
-- **机器学习**: Radar欺诈检测和风险评分系统
-- **开发者工具**: CLI工具、Webhook、文档和测试工具
+- **机器学习**: Radar 欺诈检测和风险评分系统
+- **开发者工具**: CLI 工具、Webhook、文档和测试工具
 - **云原生架构**: 微服务、容器化和实时数据处理
+
+### OpenAI 技术栈
+
+- **大型语言模型**: GPT-4、GPT-3.5、Codex 等先进 AI 模型
+- **多模态 AI**: DALL-E 图像生成、Whisper 语音识别
+- **API 服务**: RESTful API 和开发者友好的 SDK
+- **云基础设施**: 大规模 GPU 集群和分布式训练
+- **安全 AI**: 内容审核、安全分类器和偏见检测
 
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **15 个知名公司技术栈**，总计 **26 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **16 个知名公司技术栈**，总计 **27 个** 不同的技术架构图表。

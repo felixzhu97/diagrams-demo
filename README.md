@@ -31,6 +31,7 @@
 - Nvidia 技术栈（nvidia_tech_stack）
 - SAP 技术栈（sap_tech_stack）
 - PayPal 技术栈（paypal_tech_stack）
+- Stripe 技术栈（stripe_tech_stack）
 
 ## 依赖
 
@@ -112,6 +113,8 @@ python3 nvidia_tech_stack.py
 python3 sap_tech_stack.py
 # PayPal 技术栈
 python3 paypal_tech_stack.py
+# Stripe 技术栈
+python3 stripe_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -156,6 +159,7 @@ make clean
 - `nvidia_tech_stack.(png|pdf)`
 - `sap_tech_stack.(png|pdf)`
 - `paypal_tech_stack.(png|pdf)`
+- `stripe_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -271,9 +275,17 @@ make clean
 - **云原生架构**: 微服务、容器化和无服务器计算
 - **实时分析**: 大数据处理和实时决策系统
 
+### Stripe 技术栈
+
+- **API优先设计**: 开发者友好的RESTful API和SDK
+- **支付基础设施**: 全球支付网络和多种支付方式支持
+- **机器学习**: Radar欺诈检测和风险评分系统
+- **开发者工具**: CLI工具、Webhook、文档和测试工具
+- **云原生架构**: 微服务、容器化和实时数据处理
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **14 个知名公司技术栈**，总计 **25 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **15 个知名公司技术栈**，总计 **26 个** 不同的技术架构图表。

@@ -37,6 +37,18 @@
 - 支付宝技术栈（alipay_tech_stack）
 - 微信技术栈（wechat_tech_stack）
 - LinkedIn 技术栈（linkedin_tech_stack）
+- YouTube 技术栈（youtube_tech_stack）
+- X 技术栈（x_tech_stack）
+- 小红书技术栈（xiaohongshu_tech_stack）
+- Coinbase 技术栈（coinbase_tech_stack）
+- Goldman Sachs 技术栈（goldman_sachs_tech_stack）
+- Morgan Stanley 技术栈（morgan_stanley_tech_stack）
+- 抖音技术栈（douyin_tech_stack）
+- 飞书技术栈（feishu_tech_stack）
+- DoorDash 技术栈（doordash_tech_stack）
+- Workday 技术栈（workday_tech_stack）
+- ServiceNow 技术栈（servicenow_tech_stack）
+- Adobe 技术栈（adobe_tech_stack）
 
 ## 依赖
 
@@ -130,6 +142,30 @@ python3 alipay_tech_stack.py
 python3 wechat_tech_stack.py
 # LinkedIn 技术栈
 python3 linkedin_tech_stack.py
+# YouTube 技术栈
+python3 youtube_tech_stack.py
+# X 技术栈
+python3 x_tech_stack.py
+# 小红书技术栈
+python3 xiaohongshu_tech_stack.py
+# Coinbase 技术栈
+python3 coinbase_tech_stack.py
+# Goldman Sachs 技术栈
+python3 goldman_sachs_tech_stack.py
+# Morgan Stanley 技术栈
+python3 morgan_stanley_tech_stack.py
+# 抖音技术栈
+python3 douyin_tech_stack.py
+# 飞书技术栈
+python3 feishu_tech_stack.py
+# DoorDash 技术栈
+python3 doordash_tech_stack.py
+# Workday 技术栈
+python3 workday_tech_stack.py
+# ServiceNow 技术栈
+python3 servicenow_tech_stack.py
+# Adobe 技术栈
+python3 adobe_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -180,6 +216,18 @@ make clean
 - `alipay_tech_stack.(png|pdf)`
 - `wechat_tech_stack.(png|pdf)`
 - `linkedin_tech_stack.(png|pdf)`
+- `youtube_tech_stack.(png|pdf)`
+- `x_tech_stack.(png|pdf)`
+- `xiaohongshu_tech_stack.(png|pdf)`
+- `coinbase_tech_stack.(png|pdf)`
+- `goldman_sachs_tech_stack.(png|pdf)`
+- `morgan_stanley_tech_stack.(png|pdf)`
+- `douyin_tech_stack.(png|pdf)`
+- `feishu_tech_stack.(png|pdf)`
+- `doordash_tech_stack.(png|pdf)`
+- `workday_tech_stack.(png|pdf)`
+- `servicenow_tech_stack.(png|pdf)`
+- `adobe_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -343,9 +391,105 @@ make clean
 - **大数据分析**: Hadoop、Spark、实时数据仓库和分析系统
 - **AI 推荐系统**: 机器学习驱动的职业推荐、内容推荐和人才匹配
 
+### YouTube 技术栈
+
+- **视频平台**: 全球最大的视频分享和流媒体平台
+- **Google Cloud**: 全面基于 Google Cloud Platform 的云原生架构
+- **视频处理**: 大规模视频编码、转码和流媒体技术
+- **AI 技术**: 视频智能分析、内容推荐、自动字幕生成
+- **大数据**: BigQuery、Dataflow、Pub/Sub 等大数据处理技术
+
+### X 技术栈
+
+- **社交媒体**: 全球领先的实时信息分享和社交网络平台
+- **实时处理**: 高并发实时消息处理和流媒体技术
+- **大数据**: Hadoop、Spark、Kafka 等大数据技术栈
+- **机器学习**: 内容推荐、趋势分析、垃圾信息检测
+- **云原生**: 微服务架构和容器化部署
+
+### 小红书技术栈
+
+- **生活方式平台**: 中国领先的生活方式分享和电商平台
+- **内容推荐**: 基于机器学习的个性化内容推荐系统
+- **电商系统**: 完整的电商交易和支付系统
+- **多媒体处理**: 图像、视频处理和内容审核
+- **社交功能**: 用户互动、关注、分享等社交功能
+
+### Coinbase 技术栈
+
+- **加密货币交易**: 全球领先的加密货币交易和托管平台
+- **区块链技术**: 多链支持和智能合约集成
+- **安全系统**: 企业级安全防护和合规管理
+- **实时交易**: 高并发交易处理和风险控制
+- **DeFi 集成**: 去中心化金融协议和流动性管理
+
+### Goldman Sachs 技术栈
+
+- **投资银行**: 全球领先的投资银行和金融服务
+- **自研系统**: SecDB、Slang、Marquee 等专有交易系统
+- **风险控制**: 实时风险管理和合规监控系统
+- **大数据**: 大规模数据处理和量化分析
+- **云服务**: 混合云架构和云原生应用
+
+### Morgan Stanley 技术栈
+
+- **金融服务**: 全球领先的投资银行和财富管理
+- **交易系统**: Matrix、Athena 等专有交易平台
+- **风险管理**: 实时风险监控和合规管理
+- **数据分析**: 大数据分析和机器学习应用
+- **云架构**: 混合云部署和微服务架构
+
+### 抖音技术栈
+
+- **短视频平台**: 全球领先的短视频分享和创作平台
+- **推荐算法**: 基于深度学习的个性化推荐系统
+- **视频处理**: 实时视频编码、特效和流媒体技术
+- **AI 技术**: 计算机视觉、自然语言处理和内容理解
+- **全球化**: 多地区部署和本地化服务
+
+### 飞书技术栈
+
+- **企业协作**: 字节跳动推出的企业级协作办公平台
+- **实时通信**: 即时消息、音视频通话和会议系统
+- **文档协作**: 在线文档编辑和团队协作功能
+- **工作流**: 自动化工作流和审批系统
+- **集成能力**: 丰富的第三方应用集成
+
+### DoorDash 技术栈
+
+- **外卖平台**: 美国领先的本地配送和外卖平台
+- **实时配送**: 智能配送路线规划和实时跟踪
+- **多端应用**: 消费者、商家、配送员三端应用
+- **支付系统**: 安全的支付处理和风险控制
+- **数据分析**: 用户行为分析和业务智能
+
+### Workday 技术栈
+
+- **企业级 SaaS**: 全球领先的 HCM 和财务管理云平台
+- **多租户架构**: 安全的数据隔离和租户管理
+- **内存数据库**: OMS 提供高性能数据访问
+- **低代码平台**: Workday Extend 支持自定义应用开发
+- **数据分析**: Prism Analytics 提供强大的分析能力
+
+### ServiceNow 技术栈
+
+- **ITSM 平台**: 全球领先的 IT 服务管理平台
+- **多实例架构**: 安全的数据隔离和资源池管理
+- **工作流自动化**: 强大的业务流程自动化引擎
+- **低代码开发**: App Engine 支持快速应用开发
+- **全栈解决方案**: 涵盖 IT、HR、CSM、EAM 等多个领域
+
+### Adobe 技术栈
+
+- **创意软件**: 全球领先的创意软件和数字体验平台
+- **多产品生态**: Creative Cloud、Experience Cloud、Document Cloud
+- **AI 驱动**: Adobe Sensei 人工智能平台
+- **多云架构**: AWS、Azure、GCP 混合云部署
+- **全球 CDN**: Fastly 提供全球内容分发
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **20 个知名公司技术栈**，总计 **31 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **34 个知名公司技术栈**，总计 **45 个** 不同的技术架构图表。

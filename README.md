@@ -36,6 +36,7 @@
 - 阿里巴巴技术栈（alibaba_tech_stack）
 - 支付宝技术栈（alipay_tech_stack）
 - 微信技术栈（wechat_tech_stack）
+- LinkedIn 技术栈（linkedin_tech_stack）
 
 ## 依赖
 
@@ -127,6 +128,8 @@ python3 alibaba_tech_stack.py
 python3 alipay_tech_stack.py
 # 微信技术栈
 python3 wechat_tech_stack.py
+# LinkedIn 技术栈
+python3 linkedin_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -176,6 +179,7 @@ make clean
 - `alibaba_tech_stack.(png|pdf)`
 - `alipay_tech_stack.(png|pdf)`
 - `wechat_tech_stack.(png|pdf)`
+- `linkedin_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -331,9 +335,17 @@ make clean
 - **AI 技术**: 自然语言处理、计算机视觉和智能推荐
 - **开放平台**: 微信开放平台和丰富的第三方集成
 
+### LinkedIn 技术栈
+
+- **职场社交平台**: 全球领先的专业社交网络和职业发展平台
+- **自研技术**: Voldemort 分布式存储、Espresso 文档存储、Galene 搜索引擎
+- **流处理架构**: Apache Kafka、Samza 流处理框架
+- **大数据分析**: Hadoop、Spark、实时数据仓库和分析系统
+- **AI 推荐系统**: 机器学习驱动的职业推荐、内容推荐和人才匹配
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **19 个知名公司技术栈**，总计 **30 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **20 个知名公司技术栈**，总计 **31 个** 不同的技术架构图表。

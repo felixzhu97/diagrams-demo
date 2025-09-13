@@ -25,6 +25,8 @@
 - Microsoft 技术栈（microsoft_tech_stack）
 - Google 技术栈（google_tech_stack）
 - Meta 技术栈（meta_tech_stack）
+- Tesla 技术栈（tesla_tech_stack）
+- Salesforce 技术栈（salesforce_tech_stack）
 
 ## 依赖
 
@@ -94,6 +96,10 @@ python3 microsoft_tech_stack.py
 python3 google_tech_stack.py
 # Meta 技术栈
 python3 meta_tech_stack.py
+# Tesla 技术栈
+python3 tesla_tech_stack.py
+# Salesforce 技术栈
+python3 salesforce_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -132,6 +138,8 @@ make clean
 - `microsoft_tech_stack.(png|pdf)`
 - `google_tech_stack.(png|pdf)`
 - `meta_tech_stack.(png|pdf)`
+- `tesla_tech_stack.(png|pdf)`
+- `salesforce_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -199,9 +207,25 @@ make clean
 - **GraphQL**: 灵活的 API 查询语言
 - **PyTorch**: 开源的深度学习框架
 
+### Tesla 技术栈
+
+- **自动驾驶技术**: Autopilot、神经网络、计算机视觉
+- **OTA 更新**: 车辆软件远程更新系统
+- **电池管理**: 先进的电池管理系统和充电技术
+- **数据驱动**: 大规模车辆遥测数据收集和分析
+- **云端服务**: 车辆管理、能源管理、用户服务
+
+### Salesforce 技术栈
+
+- **多租户架构**: 企业级 SaaS 平台的核心架构
+- **Lightning 平台**: 现代化的 Web 和移动应用开发框架
+- **Apex 语言**: Salesforce 专有的面向对象编程语言
+- **Einstein AI**: 内置的 AI 和机器学习能力
+- **MuleSoft 集成**: 强大的企业集成和数据连接平台
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **8 个知名公司技术栈**，总计 **19 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **10 个知名公司技术栈**，总计 **21 个** 不同的技术架构图表。

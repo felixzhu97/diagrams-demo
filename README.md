@@ -29,6 +29,7 @@
 - Salesforce 技术栈（salesforce_tech_stack）
 - Oracle 技术栈（oracle_tech_stack）
 - Nvidia 技术栈（nvidia_tech_stack）
+- SAP 技术栈（sap_tech_stack）
 
 ## 依赖
 

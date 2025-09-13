@@ -34,6 +34,7 @@
 - Stripe 技术栈（stripe_tech_stack）
 - OpenAI 技术栈（openai_tech_stack）
 - 阿里巴巴技术栈（alibaba_tech_stack）
+- 支付宝技术栈（alipay_tech_stack）
 
 ## 依赖
 
@@ -121,6 +122,8 @@ python3 stripe_tech_stack.py
 python3 openai_tech_stack.py
 # 阿里巴巴技术栈
 python3 alibaba_tech_stack.py
+# 支付宝技术栈
+python3 alipay_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -168,6 +171,7 @@ make clean
 - `stripe_tech_stack.(png|pdf)`
 - `openai_tech_stack.(png|pdf)`
 - `alibaba_tech_stack.(png|pdf)`
+- `alipay_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -307,9 +311,17 @@ make clean
 - **金融科技**: 支付宝、蚂蚁链、余额宝等金融创新
 - **AI 技术**: PAI 机器学习、智能推荐、自然语言处理
 
+### 支付宝技术栈
+
+- **移动支付**: 全球领先的移动支付平台和数字钱包
+- **金融产品**: 余额宝、花呗、借呗等创新金融产品
+- **区块链技术**: 蚂蚁链和智能合约应用
+- **AI 风控**: 机器学习驱动的实时风险控制系统
+- **开放平台**: 丰富的 API 服务和开发者生态
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **17 个知名公司技术栈**，总计 **28 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **18 个知名公司技术栈**，总计 **29 个** 不同的技术架构图表。

@@ -49,6 +49,11 @@
 - Workday 技术栈（workday_tech_stack）
 - ServiceNow 技术栈（servicenow_tech_stack）
 - Adobe 技术栈（adobe_tech_stack）
+- AWS 技术栈（aws_tech_stack）
+- Airbnb 技术栈（airbnb_tech_stack）
+- Spotify 技术栈（spotify_tech_stack）
+- Tinder 技术栈（tinder_tech_stack）
+- Bumble 技术栈（bumble_tech_stack）
 
 ## 依赖
 
@@ -166,6 +171,16 @@ python3 workday_tech_stack.py
 python3 servicenow_tech_stack.py
 # Adobe 技术栈
 python3 adobe_tech_stack.py
+# AWS 技术栈
+python3 aws_tech_stack.py
+# Airbnb 技术栈
+python3 airbnb_tech_stack.py
+# Spotify 技术栈
+python3 spotify_tech_stack.py
+# Tinder 技术栈
+python3 tinder_tech_stack.py
+# Bumble 技术栈
+python3 bumble_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -228,6 +243,11 @@ make clean
 - `workday_tech_stack.(png|pdf)`
 - `servicenow_tech_stack.(png|pdf)`
 - `adobe_tech_stack.(png|pdf)`
+- `aws_tech_stack.(png|pdf)`
+- `airbnb_tech_stack.(png|pdf)`
+- `spotify_tech_stack.(png|pdf)`
+- `tinder_tech_stack.(png|pdf)`
+- `bumble_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -487,9 +507,49 @@ make clean
 - **多云架构**: AWS、Azure、GCP 混合云部署
 - **全球 CDN**: Fastly 提供全球内容分发
 
+### AWS 技术栈
+
+- **全球领先的云平台**: 世界最大的云计算服务提供商
+- **完整的服务生态**: 涵盖计算、存储、数据库、网络、安全等全栈服务
+- **无服务器架构**: Lambda、Fargate 等无服务器计算服务
+- **容器化支持**: ECS、EKS 等容器编排服务
+- **大数据和 AI**: EMR、SageMaker、Rekognition 等 AI/ML 服务
+
+### Airbnb 技术栈
+
+- **共享经济平台**: 全球领先的住宿共享平台
+- **架构演进**: 从单体架构到微服务再到宏服务混合架构
+- **开源贡献**: Apache Airflow、Superset 等知名开源项目
+- **跨平台开发**: React Native 实现 iOS 和 Android 统一开发
+- **大数据驱动**: 强大的数据分析和机器学习能力
+
+### Spotify 技术栈
+
+- **音乐流媒体领导者**: 全球领先的音乐流媒体服务提供商
+- **微服务架构**: 基于 Squad 模型的微服务架构
+- **推荐系统**: 先进的机器学习推荐算法
+- **跨平台支持**: Web、移动、桌面、智能设备全覆盖
+- **音频技术**: 专业的音频编码、流媒体和质量控制
+
+### Tinder 技术栈
+
+- **约会应用领导者**: 全球领先的约会和社交应用
+- **匹配算法**: 先进的 ELO 和 Gale-Shapley 匹配算法
+- **跨平台支持**: iOS、Android、Web 全覆盖
+- **实时功能**: 即时消息、视频聊天、实时匹配
+- **地理位置**: 基于位置的匹配和推荐
+
+### Bumble 技术栈
+
+- **女性优先约会应用**: 全球领先的女性优先约会平台
+- **多产品生态**: Date、Bizz、BFF 多产品线
+- **女性安全**: 专门的安全功能和保护机制
+- **跨平台支持**: iOS、Android、Web 全覆盖
+- **实时通信**: 即时消息、视频聊天、语音笔记
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **34 个知名公司技术栈**，总计 **45 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **40 个知名公司技术栈**，总计 **51 个** 不同的技术架构图表。

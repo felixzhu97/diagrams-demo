@@ -27,6 +27,7 @@
 - Meta 技术栈（meta_tech_stack）
 - Tesla 技术栈（tesla_tech_stack）
 - Salesforce 技术栈（salesforce_tech_stack）
+- Oracle 技术栈（oracle_tech_stack）
 
 ## 依赖
 
@@ -100,6 +101,8 @@ python3 meta_tech_stack.py
 python3 tesla_tech_stack.py
 # Salesforce 技术栈
 python3 salesforce_tech_stack.py
+# Oracle 技术栈
+python3 oracle_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -140,6 +143,7 @@ make clean
 - `meta_tech_stack.(png|pdf)`
 - `tesla_tech_stack.(png|pdf)`
 - `salesforce_tech_stack.(png|pdf)`
+- `oracle_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -223,9 +227,17 @@ make clean
 - **Einstein AI**: 内置的 AI 和机器学习能力
 - **MuleSoft 集成**: 强大的企业集成和数据连接平台
 
+### Oracle 技术栈
+
+- **Oracle 数据库**: 企业级关系型数据库的领导者
+- **WebLogic 中间件**: Java 企业级应用服务器
+- **Oracle 云服务**: 完整的云计算解决方案
+- **企业应用套件**: EBS、PeopleSoft、JD Edwards 等
+- **数据仓库和 BI**: Oracle 数据仓库、Analytics Cloud
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **10 个知名公司技术栈**，总计 **21 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **11 个知名公司技术栈**，总计 **22 个** 不同的技术架构图表。

@@ -30,6 +30,7 @@
 - Oracle 技术栈（oracle_tech_stack）
 - Nvidia 技术栈（nvidia_tech_stack）
 - SAP 技术栈（sap_tech_stack）
+- PayPal 技术栈（paypal_tech_stack）
 
 ## 依赖
 
@@ -107,6 +108,10 @@ python3 salesforce_tech_stack.py
 python3 oracle_tech_stack.py
 # Nvidia 技术栈
 python3 nvidia_tech_stack.py
+# SAP 技术栈
+python3 sap_tech_stack.py
+# PayPal 技术栈
+python3 paypal_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -149,6 +154,8 @@ make clean
 - `salesforce_tech_stack.(png|pdf)`
 - `oracle_tech_stack.(png|pdf)`
 - `nvidia_tech_stack.(png|pdf)`
+- `sap_tech_stack.(png|pdf)`
+- `paypal_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -248,9 +255,25 @@ make clean
 - **AI 和数据科学**: RAPIDS、NGC 容器、预训练模型
 - **自动驾驶**: DRIVE 平台、Isaac、Omniverse 仿真
 
+### SAP 技术栈
+
+- **ERP 系统**: SAP ECC、S/4HANA、Business One 等核心业务系统
+- **SAP HANA**: 内存数据库和实时分析平台
+- **SAP BTP**: 业务技术平台和云原生开发环境
+- **Fiori 应用**: 现代化的用户界面和移动应用
+- **集成平台**: Cloud Integration、API 管理、Event Mesh
+
+### PayPal 技术栈
+
+- **支付处理**: 全球支付引擎和交易处理系统
+- **风险控制**: 机器学习驱动的欺诈检测和风险评分
+- **数据安全**: PCI DSS 合规和端到端加密
+- **云原生架构**: 微服务、容器化和无服务器计算
+- **实时分析**: 大数据处理和实时决策系统
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **12 个知名公司技术栈**，总计 **23 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **14 个知名公司技术栈**，总计 **25 个** 不同的技术架构图表。

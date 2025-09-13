@@ -33,6 +33,7 @@
 - PayPal 技术栈（paypal_tech_stack）
 - Stripe 技术栈（stripe_tech_stack）
 - OpenAI 技术栈（openai_tech_stack）
+- 阿里巴巴技术栈（alibaba_tech_stack）
 
 ## 依赖
 
@@ -118,6 +119,8 @@ python3 paypal_tech_stack.py
 python3 stripe_tech_stack.py
 # OpenAI 技术栈
 python3 openai_tech_stack.py
+# 阿里巴巴技术栈
+python3 alibaba_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -164,6 +167,7 @@ make clean
 - `paypal_tech_stack.(png|pdf)`
 - `stripe_tech_stack.(png|pdf)`
 - `openai_tech_stack.(png|pdf)`
+- `alibaba_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -295,9 +299,17 @@ make clean
 - **云基础设施**: 大规模 GPU 集群和分布式训练
 - **安全 AI**: 内容审核、安全分类器和偏见检测
 
+### 阿里巴巴技术栈
+
+- **电商平台**: 淘宝、天猫、阿里巴巴国际站等完整电商生态
+- **阿里云服务**: ECS、RDS、OSS 等完整的云计算解决方案
+- **大数据平台**: MaxCompute、DataWorks、EMR 等大数据处理
+- **金融科技**: 支付宝、蚂蚁链、余额宝等金融创新
+- **AI 技术**: PAI 机器学习、智能推荐、自然语言处理
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **16 个知名公司技术栈**，总计 **27 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **17 个知名公司技术栈**，总计 **28 个** 不同的技术架构图表。

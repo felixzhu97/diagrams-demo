@@ -28,6 +28,7 @@
 - Tesla 技术栈（tesla_tech_stack）
 - Salesforce 技术栈（salesforce_tech_stack）
 - Oracle 技术栈（oracle_tech_stack）
+- Nvidia 技术栈（nvidia_tech_stack）
 
 ## 依赖
 
@@ -103,6 +104,8 @@ python3 tesla_tech_stack.py
 python3 salesforce_tech_stack.py
 # Oracle 技术栈
 python3 oracle_tech_stack.py
+# Nvidia 技术栈
+python3 nvidia_tech_stack.py
 ```
 
 ## 使用 Makefile 一键生成
@@ -144,6 +147,7 @@ make clean
 - `tesla_tech_stack.(png|pdf)`
 - `salesforce_tech_stack.(png|pdf)`
 - `oracle_tech_stack.(png|pdf)`
+- `nvidia_tech_stack.(png|pdf)`
 
 ## 技术栈特色
 
@@ -235,9 +239,17 @@ make clean
 - **企业应用套件**: EBS、PeopleSoft、JD Edwards 等
 - **数据仓库和 BI**: Oracle 数据仓库、Analytics Cloud
 
+### Nvidia 技术栈
+
+- **GPU 计算**: GeForce、Tesla、Quadro 等 GPU 产品线
+- **CUDA 平台**: 并行计算编程模型和平台
+- **深度学习框架**: TensorRT、cuDNN、cuBLAS 等加速库
+- **AI 和数据科学**: RAPIDS、NGC 容器、预训练模型
+- **自动驾驶**: DRIVE 平台、Isaac、Omniverse 仿真
+
 ## 说明
 
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **11 个知名公司技术栈**，总计 **22 个** 不同的技术架构图表。
+- 项目包含 **11 个系统架构设计** 和 **12 个知名公司技术栈**，总计 **23 个** 不同的技术架构图表。

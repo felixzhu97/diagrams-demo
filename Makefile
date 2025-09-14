@@ -1,8 +1,8 @@
 PY=python3
 
-.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv clean
+.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv iot clean
 
-all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv
+all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv iot
 
 # 生成数据密集型系统图（PNG/PDF）
 data:
@@ -68,6 +68,10 @@ ba:
 cv:
 	$(PY) computer_vision_diagram.py
 
+# 生成 物联网系统图
+iot:
+	$(PY) iot_system_diagram.py
+
 # 清理输出文件
 clean:
 	rm -f data_intensive_system.png data_intensive_system.pdf \
@@ -85,4 +89,5 @@ clean:
 	      cloud_computing.png cloud_computing.pdf \
 	      nlp_design.png nlp_design.pdf \
 	      business_admin.png business_admin.pdf \
-	      computer_vision_design.png computer_vision_design.pdf
+	      computer_vision_design.png computer_vision_design.pdf \
+	      iot_system_design.png iot_system_design.pdf

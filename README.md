@@ -12,6 +12,7 @@
 - 数据挖掘系统（data_mining_design）
 - 软件工程体系（software_engineering）
 - 人工智能系统（ai_design）
+- 物联网系统（iot_system_design）
 - 云计算架构（cloud_computing）
 - 自然语言处理系统（nlp_design）
 
@@ -96,6 +97,8 @@ python3 data_mining_diagram.py
 python3 software_engineering_diagram.py
 # 人工智能
 python3 ai_diagram.py
+# 物联网系统
+python3 iot_system_diagram.py
 # 云计算
 python3 cloud_computing_diagram.py
 # 自然语言处理
@@ -189,7 +192,7 @@ python3 bumble_tech_stack.py
 # 生成全部
 make all
 # 单独生成
-make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai | make cloud | make nlp | make ba
+make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai | make iot | make cloud | make nlp | make ba
 # 清理
 make clean
 ```
@@ -205,6 +208,7 @@ make clean
 - `big_data_design.(png|pdf)`、`data_mining_design.(png|pdf)`
 - `software_engineering.(png|pdf)`
 - `ai_design.(png|pdf)`
+- `iot_system_design.(png|pdf)`
 - `cloud_computing.(png|pdf)`
 - `nlp_design.(png|pdf)`
 - `business_admin.(png|pdf)`
@@ -250,6 +254,15 @@ make clean
 - `bumble_tech_stack.(png|pdf)`
 
 ## 技术栈特色
+
+### 物联网系统
+
+- **端到端架构**: 从设备层到应用层的完整 IoT 生态系统
+- **多协议支持**: WiFi、蓝牙、LoRaWAN、NB-IoT、Zigbee 等多种连接协议
+- **边缘计算**: 本地数据处理、AI 推理和实时决策能力
+- **数据流处理**: 实时流处理和批处理相结合的数据分析
+- **安全防护**: 设备认证、数据加密、访问控制和威胁检测
+- **云边协同**: 边缘计算与云计算的无缝集成
 
 ### WhatsApp 技术栈
 
@@ -552,4 +565,4 @@ make clean
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **11 个系统架构设计** 和 **40 个知名公司技术栈**，总计 **51 个** 不同的技术架构图表。
+- 项目包含 **12 个系统架构设计** 和 **40 个知名公司技术栈**，总计 **52 个** 不同的技术架构图表。

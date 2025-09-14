@@ -13,6 +13,7 @@
 - 软件工程体系（software_engineering）
 - 人工智能系统（ai_design）
 - 物联网系统（iot_system_design）
+- 区块链系统（blockchain_system_design）
 - 云计算架构（cloud_computing）
 - 自然语言处理系统（nlp_design）
 
@@ -99,6 +100,8 @@ python3 software_engineering_diagram.py
 python3 ai_diagram.py
 # 物联网系统
 python3 iot_system_diagram.py
+# 区块链系统
+python3 blockchain_system_diagram.py
 # 云计算
 python3 cloud_computing_diagram.py
 # 自然语言处理
@@ -192,7 +195,7 @@ python3 bumble_tech_stack.py
 # 生成全部
 make all
 # 单独生成
-make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai | make iot | make cloud | make nlp | make ba
+make data | make os | make k8s | make imsdk | make imsdk-mobile | make imsdk-desktop | make imsdk-web | make imsdk-rtc | make bigdata | make datamining | make se | make ai | make iot | make blockchain | make cloud | make nlp | make ba
 # 清理
 make clean
 ```
@@ -209,6 +212,7 @@ make clean
 - `software_engineering.(png|pdf)`
 - `ai_design.(png|pdf)`
 - `iot_system_design.(png|pdf)`
+- `blockchain_system_design.(png|pdf)`
 - `cloud_computing.(png|pdf)`
 - `nlp_design.(png|pdf)`
 - `business_admin.(png|pdf)`
@@ -263,6 +267,15 @@ make clean
 - **数据流处理**: 实时流处理和批处理相结合的数据分析
 - **安全防护**: 设备认证、数据加密、访问控制和威胁检测
 - **云边协同**: 边缘计算与云计算的无缝集成
+
+### 区块链系统
+
+- **分层架构**: 从应用层到基础设施层的完整区块链技术栈
+- **多共识机制**: PoW、PoS、DPoS、PoA、BFT 等多种共识算法
+- **智能合约**: 支持 Solidity、Rust、Go、WASM 等多种编程语言
+- **跨链互操作**: 跨链桥、原子交换、侧链、平行链等互操作技术
+- **DeFi 生态**: 去中心化交易所、借贷协议、流动性挖矿等金融应用
+- **NFT 生态**: NFT 市场、标准、元数据存储、版税系统等数字资产
 
 ### WhatsApp 技术栈
 
@@ -565,4 +578,4 @@ make clean
 - 所有图均使用通用 `Server` 图标以最大化兼容不同 `diagrams` 版本。
 - 若需更细图标与主题，请升级 `diagrams` 或自定义节点。
 - 技术栈图表展示了各公司的核心技术架构和特色功能。
-- 项目包含 **12 个系统架构设计** 和 **40 个知名公司技术栈**，总计 **52 个** 不同的技术架构图表。
+- 项目包含 **13 个系统架构设计** 和 **40 个知名公司技术栈**，总计 **53 个** 不同的技术架构图表。

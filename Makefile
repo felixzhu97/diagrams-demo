@@ -1,8 +1,8 @@
 PY=python3
 
-.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv iot clean
+.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv iot blockchain clean
 
-all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv iot
+all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv iot blockchain
 
 # 生成数据密集型系统图（PNG/PDF）
 data:
@@ -72,6 +72,10 @@ cv:
 iot:
 	$(PY) iot_system_diagram.py
 
+# 生成 区块链系统图
+blockchain:
+	$(PY) blockchain_system_diagram.py
+
 # 清理输出文件
 clean:
 	rm -f data_intensive_system.png data_intensive_system.pdf \
@@ -90,4 +94,5 @@ clean:
 	      nlp_design.png nlp_design.pdf \
 	      business_admin.png business_admin.pdf \
 	      computer_vision_design.png computer_vision_design.pdf \
-	      iot_system_design.png iot_system_design.pdf
+	      iot_system_design.png iot_system_design.pdf \
+	      blockchain_system_design.png blockchain_system_design.pdf

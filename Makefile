@@ -1,98 +1,39 @@
-PY=python3
+.PHONY: all system-designs company-tech-stacks commercial-algorithms financial-quantitative-algorithms clean clean-system-designs clean-company-tech-stacks clean-commercial-algorithms clean-financial-quantitative-algorithms
 
-.PHONY: all data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv iot blockchain clean
+# 生成所有图表
+all: system-designs company-tech-stacks commercial-algorithms financial-quantitative-algorithms
 
-all: data os k8s imsdk imsdk-mobile imsdk-desktop imsdk-web imsdk-rtc bigdata datamining se ai cloud nlp ba cv iot blockchain
+# 生成系统架构设计图表
+system-designs:
+	cd system-designs && $(MAKE) all
 
-# 生成数据密集型系统图（PNG/PDF）
-data:
-	$(PY) diagram.py
+# 生成知名公司技术栈图表
+company-tech-stacks:
+	cd company-tech-stacks && $(MAKE) all
 
-# 生成操作系统设计图（PNG/PDF）
-os:
-	$(PY) os_diagram.py
+# 生成商业算法图表
+commercial-algorithms:
+	cd commercial-algorithms && $(MAKE) all
 
-# 生成 Kubernetes 子系统图（PNG/PDF）
-k8s:
-	$(PY) k8s_diagram.py
+# 生成金融量化算法图表
+financial-quantitative-algorithms:
+	cd financial-quantitative-algorithms && $(MAKE) all
 
-# 生成 IM SDK 设计图（PNG/PDF）
-imsdk:
-	$(PY) im_sdk_diagram.py
+# 清理所有输出文件
+clean: clean-system-designs clean-company-tech-stacks clean-commercial-algorithms clean-financial-quantitative-algorithms
 
-# 生成 IM SDK（移动端）
-imsdk-mobile:
-	$(PY) im_sdk_mobile_diagram.py
+# 清理系统架构设计输出文件
+clean-system-designs:
+	cd system-designs && $(MAKE) clean
 
-# 生成 IM SDK（桌面端）
-imsdk-desktop:
-	$(PY) im_sdk_desktop_diagram.py
+# 清理公司技术栈输出文件
+clean-company-tech-stacks:
+	cd company-tech-stacks && $(MAKE) clean
 
-# 生成 IM SDK（Web）
-imsdk-web:
-	$(PY) im_sdk_web_diagram.py
+# 清理商业算法输出文件
+clean-commercial-algorithms:
+	cd commercial-algorithms && $(MAKE) clean
 
-# 生成 IM 实时音视频（RTC）
-imsdk-rtc:
-	$(PY) im_sdk_rtc_diagram.py
-
-# 生成 大数据系统图
-bigdata:
-	$(PY) big_data_diagram.py
-
-# 生成 数据挖掘系统图
-datamining:
-	$(PY) data_mining_diagram.py
-
-# 生成 软件工程体系图
-se:
-	$(PY) software_engineering_diagram.py
-
-# 生成 人工智能系统图
-ai:
-	$(PY) ai_diagram.py
-
-# 生成 云计算架构图
-cloud:
-	$(PY) cloud_computing_diagram.py
-
-# 生成 自然语言处理系统图
-nlp:
-	$(PY) nlp_diagram.py
-
-# 生成 工商管理系统图
-ba:
-	$(PY) business_admin_diagram.py
-
-# 生成 计算机视觉系统图
-cv:
-	$(PY) computer_vision_diagram.py
-
-# 生成 物联网系统图
-iot:
-	$(PY) iot_system_diagram.py
-
-# 生成 区块链系统图
-blockchain:
-	$(PY) blockchain_system_diagram.py
-
-# 清理输出文件
-clean:
-	rm -f data_intensive_system.png data_intensive_system.pdf \
-	      os_design.png os_design.pdf \
-	      k8s_design.png k8s_design.pdf \
-	      im_sdk_design.png im_sdk_design.pdf \
-	      im_sdk_mobile.png im_sdk_mobile.pdf \
-	      im_sdk_desktop.png im_sdk_desktop.pdf \
-	      im_sdk_web.png im_sdk_web.pdf \
-	      im_sdk_rtc.png im_sdk_rtc.pdf \
-	      big_data_design.png big_data_design.pdf \
-	      data_mining_design.png data_mining_design.pdf \
-	      software_engineering.png software_engineering.pdf \
-	      ai_design.png ai_design.pdf \
-	      cloud_computing.png cloud_computing.pdf \
-	      nlp_design.png nlp_design.pdf \
-	      business_admin.png business_admin.pdf \
-	      computer_vision_design.png computer_vision_design.pdf \
-	      iot_system_design.png iot_system_design.pdf \
-	      blockchain_system_design.png blockchain_system_design.pdf
+# 清理金融量化算法输出文件
+clean-financial-quantitative-algorithms:
+	cd financial-quantitative-algorithms && $(MAKE) clean
